@@ -33,6 +33,9 @@ class ViewController: UIViewController {
     var locationManager: CLLocationManager?
     var previousLocation: CLLocation?
     
+    var places: [InterestingPlace] = []
+    var selectedPlace: InterestingPlace? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let childViewController = children.first as? PlaceScrollViewController {
@@ -44,6 +47,10 @@ class ViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        
+        // Inicializando selectedPlace com um default
+        selectedPlace = places.first
+        updateUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +70,14 @@ class ViewController: UIViewController {
         }
     }
     
+    private func updateUI() {
+        placeName.text = selectedPlace?.name
+        guard let imageName = selectedPlace?.imageName, let image = UIImage(named: imageName) else {
+            return
+        }
+        placeImage.image = image
+    }
+    
     private func activateLocationServices() {
         locationManager?.startUpdatingLocation()
     }
@@ -76,10 +91,8 @@ class ViewController: UIViewController {
                 let latitude = property["Latitude"] as? NSNumber,
                 let longitude = property["Longitude"] as? NSNumber,
                 let image = property["Image"] as? String else { fatalError("Error reading data") }
-            print("name: \(name)")
-            print("latitude: \(latitude)")
-            print("longitude: \(longitude)")
-            print("image: \(image)")
+            let place = InterestingPlace(latitude: latitude.doubleValue, longitude: longitude.doubleValue, name: name, imageName: image)
+            places.append(place)
         }
     }
     

@@ -51,6 +51,9 @@ class ViewController: UIViewController {
         // Inicializando selectedPlace com um default
         selectedPlace = places.first
         updateUI()
+        
+        placesViewController?.addPlaces(places: places)
+        placesViewController?.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -132,5 +135,12 @@ extension ViewController: CLLocationManagerDelegate {
             print("Distance in meters: \(distanceInMeters)")
             previousLocation = latest
         }
+    }
+}
+
+extension ViewController: PlaceScrollViewControllerDelegate {
+    func selectedPlaceViewController(_ controller: PlaceScrollViewController, didSelectPlace place: InterestingPlace) {
+        selectedPlace = place
+        updateUI()
     }
 }

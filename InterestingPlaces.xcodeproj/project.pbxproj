@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8865829122D3916D00B5243E /* BasketLoop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8865829022D3916D00B5243E /* BasketLoop.gpx */; };
 		88F265CB22D36DD200AE3A15 /* InterestingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */; };
 		D30AC51E216E4C9E00033D1D /* PlaceScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30AC51D216E4C9E00033D1D /* PlaceScrollViewController.swift */; };
 		D37747851CB6835700641F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37747841CB6835700641F78 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8865829022D3916D00B5243E /* BasketLoop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = BasketLoop.gpx; sourceTree = "<group>"; };
 		88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlace.swift; sourceTree = "<group>"; };
 		D30AC51D216E4C9E00033D1D /* PlaceScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceScrollViewController.swift; sourceTree = "<group>"; };
 		D37747811CB6835700641F78 /* InterestingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +46,6 @@
 		D37747781CB6835700641F78 = {
 			isa = PBXGroup;
 			children = (
-				88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */,
 				D37747831CB6835700641F78 /* InterestingPlaces */,
 				D37747821CB6835700641F78 /* Products */,
 			);
@@ -62,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				D37747841CB6835700641F78 /* AppDelegate.swift */,
+				8865829022D3916D00B5243E /* BasketLoop.gpx */,
 				D37747861CB6835700641F78 /* ViewController.swift */,
 				D37747881CB6835700641F78 /* Main.storyboard */,
 				D377478B1CB6835700641F78 /* Assets.xcassets */,
@@ -69,6 +71,7 @@
 				D37747901CB6835700641F78 /* Info.plist */,
 				D37747981CB69E3B00641F78 /* Places.plist */,
 				D30AC51D216E4C9E00033D1D /* PlaceScrollViewController.swift */,
+				88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */,
 			);
 			path = InterestingPlaces;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D377478F1CB6835700641F78 /* LaunchScreen.storyboard in Resources */,
+				8865829122D3916D00B5243E /* BasketLoop.gpx in Resources */,
 				D377478C1CB6835700641F78 /* Assets.xcassets in Resources */,
 				D37747991CB69E3B00641F78 /* Places.plist in Resources */,
 				D377478A1CB6835700641F78 /* Main.storyboard in Resources */,

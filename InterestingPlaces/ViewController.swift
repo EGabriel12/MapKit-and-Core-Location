@@ -119,8 +119,17 @@ class ViewController: UIViewController {
     }
     
     private func activateLocationServices() {
-        locationManager?.requestLocation() // Requisita apenas uma localização
+        //locationManager?.requestLocation() // Requisita apenas uma localização
         //locationManager?.startUpdatingLocation()
+        
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            for place in places {
+                let region = CLCircularRegion(center: place.location.coordinate, radius: 500, identifier: place.name)
+                region.notifyOnEntry = true
+                locationManager?.startMonitoring(for: region)
+            }
+        }
+        locationManager?.startUpdatingLocation()
     }
     
     func loadPlaces() {
@@ -163,6 +172,22 @@ extension ViewController: CLLocationManagerDelegate {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             activateLocationServices()
         }
+    }
+    
+    // É chamado quando um usuário entra em uma região
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if presentationController == nil {
+            let alertController = UIAlertController(title: "Interesting Location Nearby", message: "You are near \(region.identifier). Check it out!", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+                self?.dismiss(animated: true, completion: nil)
+            }
+            alertController.addAction(alertAction)
+            present(alertController, animated: false, completion: nil)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print(error.localizedDescription)
     }
     
     // Atualiza a localizzação do usuário

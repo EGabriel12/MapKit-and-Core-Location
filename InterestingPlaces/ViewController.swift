@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
         
+        locationManager?.allowsBackgroundLocationUpdates = true // Ativa o modo background
+        
         // Inicializando selectedPlace com um default
         selectedPlace = places.first
         updateUI()
@@ -69,7 +71,7 @@ class ViewController: UIViewController {
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             activateLocationServices()
         } else {
-            locationManager?.requestWhenInUseAuthorization()
+            locationManager?.requestAlwaysAuthorization()
         }
     }
     
@@ -89,7 +91,8 @@ class ViewController: UIViewController {
     }
     
     private func activateLocationServices() {
-        locationManager?.startUpdatingLocation()
+        locationManager?.requestLocation() // Requisita apenas uma localização
+        //locationManager?.startUpdatingLocation()
     }
     
     func loadPlaces() {
@@ -122,6 +125,11 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     
+    //Necessário, senão o app crasha
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
     // Função chamada toda vez que o usuário manipula a autorização
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
@@ -133,7 +141,7 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         currentLocation = locations.first
-
+        print(currentLocation)
 //        if currentLocation == nil {
 //            currentLocation = locations.first
 //        }

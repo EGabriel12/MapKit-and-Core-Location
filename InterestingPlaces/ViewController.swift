@@ -138,6 +138,7 @@ class ViewController: UIViewController {
                 return
             }
             mapController.place = selectedPlace
+            mapController.places = places
         }
     }
     

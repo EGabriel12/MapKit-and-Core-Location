@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
-class InterestingPlace {
+class InterestingPlace: NSObject {
     let location: CLLocation
     let name: String
     let imageName: String
@@ -18,5 +19,19 @@ class InterestingPlace {
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.name = name
         self.imageName = imageName
+    }
+}
+
+extension InterestingPlace: MKAnnotation { // Necessário para adicionar annotations no mapa
+    var coordinate: CLLocationCoordinate2D {
+        get {
+            return location.coordinate
+        }
+    }
+    
+    var title: String? {
+        get {
+            return name
+        }
     }
 }

@@ -53,6 +53,8 @@ class MapViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        produceOverlay()
     }
     
     @IBAction func close(_ sender: Any) {
@@ -75,6 +77,18 @@ class MapViewController: UIViewController {
             tableView.isHidden = false
         }
         
+    }
+    
+    private func produceOverlay() {
+        var points: [CLLocationCoordinate2D] = []
+        points.append(CLLocationCoordinate2DMake(40.063965, -82.346642))
+        points.append(CLLocationCoordinate2DMake(40.063921, -82.346642))
+        points.append(CLLocationCoordinate2DMake(40.063557, -82.346185))
+        points.append(CLLocationCoordinate2DMake(40.063961, -82.347200))
+        points.append(CLLocationCoordinate2DMake(40.063965, -82.347150))
+        points.append(CLLocationCoordinate2DMake(40.063965, -82.346800))
+        let polygon = MKPolygon(coordinates: &points, count: points.count)
+        mapView.addOverlay(polygon)
     }
     
     // Carregando directions
@@ -109,6 +123,14 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let polyRenderer = MKPolygonRenderer(overlay: overlay)
+        polyRenderer.strokeColor = UIColor.green
+        polyRenderer.lineWidth = 8.0
+        
+        return polyRenderer
+    }
     
 }
 

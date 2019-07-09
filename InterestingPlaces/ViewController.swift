@@ -151,7 +151,12 @@ class ViewController: UIViewController {
                 let latitude = property["Latitude"] as? NSNumber,
                 let longitude = property["Longitude"] as? NSNumber,
                 let image = property["Image"] as? String else { fatalError("Error reading data") }
-            let place = InterestingPlace(latitude: latitude.doubleValue, longitude: longitude.doubleValue, name: name, imageName: image)
+            var sponsored = false
+            if property["sponsored"] != nil {
+                sponsored = property["sponsored"] as? Bool ?? false
+            }
+            
+            let place = InterestingPlace(latitude: latitude.doubleValue, longitude: longitude.doubleValue, name: name, imageName: image, sponsored: sponsored)
             places.append(place)
         }
     }

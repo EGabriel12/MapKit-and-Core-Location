@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8865829122D3916D00B5243E /* BasketLoop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8865829022D3916D00B5243E /* BasketLoop.gpx */; };
 		88C05A1722D421FF001A4B6A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C05A1622D421FF001A4B6A /* MapViewController.swift */; };
+		88C05A1922D4C58B001A4B6A /* InterestingPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C05A1822D4C58B001A4B6A /* InterestingPlaceView.swift */; };
+		88C05A1B22D4C6E3001A4B6A /* ClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C05A1A22D4C6E3001A4B6A /* ClusterView.swift */; };
 		88F265CB22D36DD200AE3A15 /* InterestingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */; };
 		D30AC51E216E4C9E00033D1D /* PlaceScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30AC51D216E4C9E00033D1D /* PlaceScrollViewController.swift */; };
 		D37747851CB6835700641F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37747841CB6835700641F78 /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		8865829022D3916D00B5243E /* BasketLoop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = BasketLoop.gpx; sourceTree = "<group>"; };
 		88C05A1622D421FF001A4B6A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		88C05A1822D4C58B001A4B6A /* InterestingPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlaceView.swift; sourceTree = "<group>"; };
+		88C05A1A22D4C6E3001A4B6A /* ClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterView.swift; sourceTree = "<group>"; };
 		88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPlace.swift; sourceTree = "<group>"; };
 		D30AC51D216E4C9E00033D1D /* PlaceScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceScrollViewController.swift; sourceTree = "<group>"; };
 		D37747811CB6835700641F78 /* InterestingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,8 @@
 				D30AC51D216E4C9E00033D1D /* PlaceScrollViewController.swift */,
 				88F265CA22D36DD200AE3A15 /* InterestingPlace.swift */,
 				88C05A1622D421FF001A4B6A /* MapViewController.swift */,
+				88C05A1822D4C58B001A4B6A /* InterestingPlaceView.swift */,
+				88C05A1A22D4C6E3001A4B6A /* ClusterView.swift */,
 			);
 			path = InterestingPlaces;
 			sourceTree = "<group>";
@@ -162,8 +168,10 @@
 				D37747871CB6835700641F78 /* ViewController.swift in Sources */,
 				D30AC51E216E4C9E00033D1D /* PlaceScrollViewController.swift in Sources */,
 				88F265CB22D36DD200AE3A15 /* InterestingPlace.swift in Sources */,
+				88C05A1922D4C58B001A4B6A /* InterestingPlaceView.swift in Sources */,
 				88C05A1722D421FF001A4B6A /* MapViewController.swift in Sources */,
 				D37747851CB6835700641F78 /* AppDelegate.swift in Sources */,
+				88C05A1B22D4C6E3001A4B6A /* ClusterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

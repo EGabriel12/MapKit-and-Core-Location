@@ -111,6 +111,9 @@ class MapViewController: UIViewController {
             }
             if let route = response?.routes.first {
                 let formatter = MKDistanceFormatter()
+                
+                let overlay = self?.mapView.addOverlay(route.polyline) // Importante
+                
                 formatter.unitStyle = .full
                 for step in route.steps {
                     let distance = formatter.string(fromDistance: step.distance)
@@ -125,11 +128,19 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let polyRenderer = MKPolygonRenderer(overlay: overlay)
-        polyRenderer.strokeColor = UIColor.green
-        polyRenderer.lineWidth = 8.0
         
-        return polyRenderer
+        if overlay is MKPolygon {
+            let polyRenderer = MKPolygonRenderer(overlay: overlay)
+            polyRenderer.strokeColor = UIColor.green
+            polyRenderer.lineWidth = 8.0
+            
+            return polyRenderer
+        }
+        else {
+            let polyLine = MKPolygonRenderer(overlay: overlay)
+            polyLine.strokeColor = UIColor.blue
+            return polyLine
+        }
     }
     
 }

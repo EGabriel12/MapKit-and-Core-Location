@@ -133,6 +133,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp2-FD-TvS">
                                 <rect key="frame" x="20" y="686" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="close:" destination="XbH-gV-7eX" eventType="touchUpInside" id="yUx-Rx-UVX"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fsw-cX-0Q9">
                                 <rect key="frame" x="143.66666666666666" y="688" width="126.99999999999997" height="29"/>
@@ -140,6 +143,9 @@
                                     <segment title="First"/>
                                     <segment title="Satellite"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeMapType:" destination="XbH-gV-7eX" eventType="valueChanged" id="hhf-PR-tBl"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,6 +160,9 @@
                             <constraint firstAttribute="trailing" secondItem="yLr-MX-o1f" secondAttribute="trailing" id="m8o-Bv-4o1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="yLr-MX-o1f" id="E38-Oe-wj1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tc8-r6-jDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
